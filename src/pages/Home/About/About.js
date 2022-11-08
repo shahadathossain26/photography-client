@@ -3,7 +3,7 @@ import aboutImage from '../../../assets/Banners/camera-2931883__340.jpg'
 
 const About = () => {
     return (
-        <div className="hero">
+        <div className="hero mb-16">
             <div className="hero-content flex-col lg:flex-row">
                 <div className='w-1/2'>
                     <img src={aboutImage} className="rounded-lg shadow-2xl" alt='' />
