@@ -1,17 +1,18 @@
 import React from 'react';
 
 const Service = ({ service }) => {
-    const { name, image, price } = service;
+    const { name, image, price, discription } = service;
 
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+                <figure><img className='h-64' src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p>{discription}</p>
+                    <h3 className='text-3xl text-red-600 font-bold'>$ {price}</h3>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button className="btn btn-accent">View Details</button>
                     </div>
                 </div>
             </div>
