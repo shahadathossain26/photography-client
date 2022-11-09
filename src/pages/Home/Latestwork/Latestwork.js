@@ -23,7 +23,7 @@ const Latestwork = () => {
                         key={latestWork._id}
                         latestWork={latestWork}
                     ></LatestworkCard>)
-                }0.
+                }
 
             </div>
             <div className='text-center'>
