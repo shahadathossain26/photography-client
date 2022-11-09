@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Service = ({ service, latestWork }) => {
-    const { name, image, price, discription } = service;
+    const { _id, name, image, price, discription } = service;
 
 
     return (
@@ -14,7 +15,7 @@ const Service = ({ service, latestWork }) => {
 
                     <div className="card-actions flex justify-between mt-5">
                         <h3 className='text-3xl text-red-600 font-bold'>$ {price}</h3>
-                        <button className="btn btn-accent">View Details</button>
+                        <Link to={`/services/${_id}`}><button className="btn btn-accent">View Details</button></Link>
                     </div>
                 </div>
             </div>
