@@ -1,9 +1,7 @@
 import React from 'react';
 
-const Service = ({ service, latestWork }) => {
-    const { name, image, price, discription } = service;
-
-
+const LatestworkCard = ({ latestWork }) => {
+    const { name, image, price, discription } = latestWork;
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -22,4 +20,4 @@ const Service = ({ service, latestWork }) => {
     );
 };
 
-export default Service;
+export default LatestworkCard;

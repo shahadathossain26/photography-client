@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Service from './Service';
+import serviceImage from '../../assets/services.jpg'
 
 const Services = () => {
     const [services, setServices] = useState([]);
@@ -10,6 +11,17 @@ const Services = () => {
     }, [])
     return (
         <div>
+            <div className='relative mb-16'>
+                <div className='home-banner'>
+                    <img className='w-full h-80' src={serviceImage} alt="" />
+                </div>
+
+                <div className='absolute top-36 left-24'>
+                    <h1 className='text-6xl font-bold text-white'>Services</h1>
+                </div>
+
+
+            </div>
             <div className='text-center mb-16'>
                 <h2 className='text-5xl text-white font-bold mb-5'>Our Services</h2>
                 <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Harum eaque inventore in sed laborum labore laudantium libero, <br /> voluptatibus sint quasi asperiores rem magnam atque. Excepturi.</p>

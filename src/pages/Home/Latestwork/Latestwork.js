@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Service from '../../Services/Service';
+import LatestworkCard from '../LatestworkCard/LatestworkCard';
 
 const Latestwork = () => {
-    const [services, setServices] = useState([]);
+    const [latestWorks, setLatestWorks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('http://localhost:5000/')
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => setLatestWorks(data))
     }, [])
     return (
         <div>
@@ -18,11 +19,11 @@ const Latestwork = () => {
             <div
                 className='grid lg:grid-cols-3 gap-6 mx-16 mb-10'>
                 {
-                    services.map(service => <Service
-                        key={service._id}
-                        service={service}
-                    ></Service>)
-                }
+                    latestWorks.map(latestWork => <LatestworkCard
+                        key={latestWork._id}
+                        latestWork={latestWork}
+                    ></LatestworkCard>)
+                }0.
 
             </div>
             <div className='text-center'>
