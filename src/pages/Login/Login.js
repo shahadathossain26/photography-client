@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+    const { providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className="hero">
             <div className="hero-content flex-col lg:flex-row">
@@ -27,8 +43,11 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-accent">Login</button>
                         </div>
+                        <h3 className='text-2xl font-bold text-center'>Or</h3>
+                        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-accent"><FcGoogle className='mr-5 text-3xl'></FcGoogle>  Login With Google</button>
+
                     </div>
                 </div>
             </div>

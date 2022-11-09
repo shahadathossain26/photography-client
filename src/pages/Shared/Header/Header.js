@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/Logo.jpg'
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
+        <div>
+            {user?.email ?
+                <div className='flex'>
+                    <li><Link to='/myreviews'>My Reviews</Link></li>
+                    <li><Link to='/myreviews'>Add Service</Link></li>
+                </div>
+                : <></>
+            }
+        </div>
         <li><Link to='/blog'>Blog</Link></li>
 
     </>
@@ -28,8 +40,21 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
+
             <div className="navbar-end">
-                <a href="/" className="btn">Get started</a>
+                <div>
+                    {user?.photoURL ?
+                        <img className='rounded-full w-16 mr-4' src={user.photoURL} alt="" />
+                        : <FaUserAlt className='text-white text-3xl mr-4'></FaUserAlt>
+                    }
+                </div>
+                <div>
+                    {user?.email ?
+                        <button className="btn btn-accent">Logout</button>
+                        : <button className="btn btn-accent">Login</button>
+                    }
+                </div>
+
             </div>
         </div>
     );
