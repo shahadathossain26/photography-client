@@ -5,7 +5,14 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <div>
@@ -50,8 +57,8 @@ const Header = () => {
                 </div>
                 <div>
                     {user?.email ?
-                        <button className="btn btn-accent">Logout</button>
-                        : <button className="btn btn-accent">Login</button>
+                        <button onClick={handleLogOut} className="btn btn-accent">Logout</button>
+                        : <Link to='/login'><button className="btn btn-accent">Login</button></Link>
                     }
                 </div>
 
