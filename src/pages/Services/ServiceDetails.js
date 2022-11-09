@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import serviceImage from '../../assets/services.jpg';
 
 import { useLoaderData } from 'react-router-dom';
 import ReviewCard from '../Reviews/ReviewCard';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const ServiceDetails = () => {
+    const { user } = useContext(AuthContext);
     const { _id, name, image, discription } = useLoaderData();
     const [reviews, setReviews] = useState([]);
     console.log(reviews);
@@ -48,7 +50,7 @@ const ServiceDetails = () => {
                     <h2 className='text-5xl text-white font-bold mb-5'>Customers Review</h2>
                     <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Harum eaque inventore in sed laborum labore laudantium libero, <br /> voluptatibus sint quasi asperiores rem magnam atque. Excepturi.</p>
                 </div>
-                <div className='grid lg:grid-cols-3 gap-6 mx-16 mb-10'>
+                <div className='grid lg:grid-cols-3 gap-6 mx-16 mb-20'>
                     {
                         reviews.map(review => <ReviewCard
                             key={review._id}
@@ -58,14 +60,27 @@ const ServiceDetails = () => {
                 </div>
             </div>
 
-            <form>
-                <div className='grid grid-cols-2 gap-x-20 gap-y-8 mx-16'>
-                    <input type="text" placeholder="Your name" className="input w-full bg-white" />
-                    <input type="text" placeholder="Photo URL" className="input w-full bg-white" />
-                    <input type="text" placeholder="Your Phone" className="input w-full bg-white" />
-                    <input type="text" placeholder="Your email" className="input w-full bg-white" />
-                </div>
-            </form>
+            <div>
+                {user?.email ?
+                    <div>
+                        <h3 className='text-4xl text-accent font-bold text-center mb-14'><u>Add Your Review</u></h3>
+                        <form>
+                            <div className='grid grid-cols-2 gap-x-20 gap-y-8 mx-16 mb-12'>
+                                <input type="text" placeholder="Your name" className="input w-full bg-white text-black" />
+                                <input type="text" placeholder="Photo URL" className="input w-full bg-white text-black" />
+                                <input type="text" placeholder="Your Phone" className="input w-full bg-white text-black" />
+                                <input type="text" placeholder="Your email" className="input w-full bg-white text-black" />
+                            </div>
+                            <div className='text-center'>
+                                <textarea className="textarea textarea-success w-1/2 h-44 text-black  bg-white" placeholder="Bio"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    : <></>
+                }
+            </div>
+
+
 
 
         </div>
