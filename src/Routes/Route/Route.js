@@ -3,7 +3,7 @@ import Main from "../../Layout/Main";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login.js";
 import Register from "../../pages/Register/Register.js";
-import Review from "../../pages/Reviews/Reviews";
+
 import Services from "../../pages/Services/Services";
 import ServiceDetails from "../../pages/Services/ServiceDetails"
 import MyReviews from "../../pages/MyReviews/MyReviews";
