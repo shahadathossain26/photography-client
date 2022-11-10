@@ -22,7 +22,7 @@ const ServiceDetails = () => {
         const form = event.target;
         const name = form.name.value;
         const image = form.photo.value;
-        const phone = form.phone.value;
+
         const email = user?.email || 'unregister';
         const message = form.message.value;
 
