@@ -17,6 +17,42 @@ const ServiceDetails = () => {
             .then(data => setReviews(data))
     }, [_id]);
 
+    const handleMyReview = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const image = form.photo.value;
+        const phone = form.phone.value;
+        const email = user?.email || 'unregister';
+        const message = form.message.value;
+
+        const review = {
+            name: name,
+            image: image,
+            text: message,
+            service_id: _id,
+            email: email,
+        }
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    form.reset();
+                    alert('Review placed succesfully')
+                }
+            })
+            .catch(error => console.error(error));
+
+    }
+
 
     return (
 
@@ -64,16 +100,21 @@ const ServiceDetails = () => {
                 {user?.email ?
                     <div>
                         <h3 className='text-4xl text-accent font-bold text-center mb-14'><u>Add Your Review</u></h3>
-                        <form>
+                        <form onSubmit={handleMyReview}>
                             <div className='grid grid-cols-2 gap-x-20 gap-y-8 mx-16 mb-12'>
-                                <input type="text" placeholder="Your name" className="input w-full bg-white text-black" />
-                                <input type="text" placeholder="Photo URL" className="input w-full bg-white text-black" />
-                                <input type="text" placeholder="Your Phone" className="input w-full bg-white text-black" />
-                                <input type="text" placeholder="Your email" className="input w-full bg-white text-black" />
+                                <input type="text" name='name' placeholder="Your name" className="input w-full bg-white text-black" />
+                                <input type="text" name='photo' placeholder="Photo URL" className="input w-full bg-white text-black" value={user?.photoURL} />
+                                <input type="text" name='phone' placeholder="Your Phone" className="input w-full bg-white text-black" />
+                                <input type="text" name='email' placeholder="Your email" className="input w-full bg-white text-black" value={user?.email} />
                             </div>
                             <div className='text-center'>
-                                <textarea className="textarea textarea-success w-1/2 h-44 text-black  bg-white" placeholder="Bio"></textarea>
+                                <textarea name='message' className="textarea textarea-success w-3/4 mx-16 h-44 text-black  bg-white" placeholder="Bio"></textarea>
+
                             </div>
+                            <div className='text-center mt-6'>
+                                <button className="btn btn-accent">Place Your Review</button>
+                            </div>
+
                         </form>
                     </div>
                     : <></>
