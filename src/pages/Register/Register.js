@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    useTitle('Register');
 
 
     const handleSubmit = (event) => {

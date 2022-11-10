@@ -3,10 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const { providerLogin, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    useTitle('Login');
 
     const googleProvider = new GoogleAuthProvider()
 

@@ -4,10 +4,12 @@ import serviceImage from '../../assets/services.jpg';
 import { useLoaderData } from 'react-router-dom';
 import ReviewCard from '../Reviews/ReviewCard';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
     const { _id, name, image, discription } = useLoaderData();
+    useTitle('Service Details');
     const [reviews, setReviews] = useState([]);
     console.log(reviews);
 

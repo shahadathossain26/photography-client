@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Service from './Service';
 import serviceImage from '../../assets/services.jpg'
+import useTitle from '../../hooks/useTitle';
 
 const Services = () => {
     const [services, setServices] = useState([]);
+    useTitle('Services');
     useEffect(() => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
