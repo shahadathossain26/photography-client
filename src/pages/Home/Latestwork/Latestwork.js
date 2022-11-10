@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Service from '../../Services/Service';
+
 import LatestworkCard from '../LatestworkCard/LatestworkCard';
 
 const Latestwork = () => {
     const [latestWorks, setLatestWorks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/')
+        fetch('https://assainment11-server.vercel.app/')
             .then(res => res.json())
             .then(data => setLatestWorks(data))
     }, [])
@@ -14,7 +14,7 @@ const Latestwork = () => {
         <div>
             <div className='text-center mb-16'>
                 <h2 className='text-5xl text-white font-bold mb-5'>Browse My Latest Work</h2>
-                <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Harum eaque inventore in sed laborum labore laudantium libero, <br /> voluptatibus sint quasi asperiores rem magnam atque. Excepturi.</p>
+                <p className=''>Browse all of my lastest and top rated works and find which service you are looking for.</p>
             </div>
             <div
                 className='grid lg:grid-cols-3 gap-6 mx-16 mb-10'>

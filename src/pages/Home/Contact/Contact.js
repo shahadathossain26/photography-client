@@ -13,7 +13,7 @@ const Contact = () => {
             </div>
 
             <div className='absolute top-44 left-24 w-1/2'>
-                <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae velit vel expedita blanditiis consectetur quos nobis, exercitationem eaque laboriosam, delectus voluptatibus illo pariatur eos eligendi beatae, incidunt labore dolorem natus.</p>
+                <p className='text-white'>Confident and dedicated photographer with experience in both professional and freelance photography. Holds nearly 10 years of working experience with great variety in order to tackle any photography job quickly and effectively. Intimately familiar taking high quality digital photographs, including framing, selecting and setting up lighting, and determining advanced shutter and lens options.</p>
             </div>
 
             <div className='absolute top-60 left-24 mt-20'>

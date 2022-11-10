@@ -16,7 +16,7 @@ const Banner = () => {
             </div>
 
             <div className='absolute top-80 left-24 w-1/2'>
-                <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae velit vel expedita blanditiis consectetur quos nobis, exercitationem eaque laboriosam, delectus voluptatibus illo pariatur eos eligendi beatae, incidunt labore dolorem natus.</p>
+                <p className='text-white'>Photography is the art of capturing light with a camera, usually via a digital sensor or film, to create an image with the right camera</p>
             </div>
 
             <div className='absolute top-96 left-24 mt-20'>

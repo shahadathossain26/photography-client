@@ -6,7 +6,7 @@ const MyReviewCard = ({ myReview, handleDelete }) => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service_id}`)
+        fetch(`https://assainment11-server.vercel.app/services/${service_id}`)
             .then(res => res.json())
             .then(data => setService(data))
 

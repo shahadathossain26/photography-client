@@ -7,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
     useTitle('Services');
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://assainment11-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -25,8 +25,8 @@ const Services = () => {
 
             </div>
             <div className='text-center mb-16'>
-                <h2 className='text-5xl text-white font-bold mb-5'>Our Services</h2>
-                <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Harum eaque inventore in sed laborum labore laudantium libero, <br /> voluptatibus sint quasi asperiores rem magnam atque. Excepturi.</p>
+                <h2 className='text-5xl text-white font-bold mb-5'>My Services</h2>
+                <p className=' w-1/2 ml-80'>These are the services that I provide. Visit the services and see my performance. If your requirement doesn't match with the service, you can personally contact me and discribe your requirement to me. I will do my best to fullfill your requirement.</p>
             </div>
             <div className='grid lg:grid-cols-3 gap-6 mx-16 mb-10'>
                 {

@@ -14,7 +14,7 @@ const ServiceDetails = () => {
     console.log(reviews);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
+        fetch(`https://assainment11-server.vercel.app/reviews/${_id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [_id]);
@@ -37,7 +37,7 @@ const ServiceDetails = () => {
             email: email,
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assainment11-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -87,7 +87,7 @@ const ServiceDetails = () => {
             <div>
                 <div className='text-center mb-16'>
                     <h2 className='text-5xl text-white font-bold mb-5'>Customers Review</h2>
-                    <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Harum eaque inventore in sed laborum labore laudantium libero, <br /> voluptatibus sint quasi asperiores rem magnam atque. Excepturi.</p>
+                    <p className=''>Look what people say about me.</p>
                 </div>
                 <div className='grid lg:grid-cols-3 gap-6 mx-16 mb-20'>
                     {

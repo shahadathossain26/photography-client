@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
@@ -6,9 +6,13 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-    const { providerLogin, signIn } = useContext(AuthContext);
+    const { providerLogin, signIn, loading } = useContext(AuthContext);
+
     const navigate = useNavigate();
     useTitle('Login');
+    if (loading) {
+        <h2 className='text-2xl font-bold text-white'>Loading...</h2>
+    }
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -39,7 +43,9 @@ const Login = () => {
     }
 
     return (
+
         <div className="hero">
+
             <div className="hero-content flex-col lg:flex-row">
                 <div className="text-center lg:text-left w-1/2">
                     <h1 className="text-5xl font-bold">Login now!</h1>
