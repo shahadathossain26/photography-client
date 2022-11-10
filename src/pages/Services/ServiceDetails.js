@@ -31,6 +31,7 @@ const ServiceDetails = () => {
             image: image,
             text: message,
             service_id: _id,
+
             email: email,
         }
 
